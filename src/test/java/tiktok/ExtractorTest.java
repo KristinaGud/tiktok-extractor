@@ -77,5 +77,20 @@ public class ExtractorTest {
         Assert.assertEquals(5, extractor.extractTopHashTags(data, 5).size());
     }
 
+    @Test
+    public void urlsToFirstPageAreGenerated() {
+        Set<String> ids = new HashSet <>();
+        ids.add("6685975523882978565");
+        ids.add("6685969384889912582");
+        ids.add("6685956087025241350");
+
+        List<String> urls = new ArrayList <>();
+        urls.add("https://www.tiktok.com/share/item/comment/list?id=6685975523882978565&count=48&cursor=0");
+        urls.add("https://www.tiktok.com/share/item/comment/list?id=6685969384889912582&count=48&cursor=0");
+        urls.add("https://www.tiktok.com/share/item/comment/list?id=6685956087025241350&count=48&cursor=0");
+
+        Assert.assertTrue(extractor.generateUrlsToFirstCommentsPage(ids).contains(urls.iterator().next()));
+    }
+
 
 }

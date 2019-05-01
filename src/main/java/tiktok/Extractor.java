@@ -24,7 +24,6 @@ public class Extractor {
             Pattern pattern = Pattern.compile(patternString);
             Matcher matcher = pattern.matcher(text);
             if (matcher.find()) {
-                log.info("id :" + matcher.group(1));
                 ids.add(matcher.group(1));
             }
         }
@@ -32,6 +31,18 @@ public class Extractor {
         log.info("found unique ids: " + ids.size());
 
         return ids;
+    }
+
+    public List<String> generateUrlsToFirstCommentsPage(Set<String> ids) {
+
+        List<String> urlsToComments = new ArrayList <>();
+        for (String id: ids) {
+            String firstPage = "https://www.tiktok.com/share/item/comment/list?id=" +
+                    id + "&count=48&cursor=0";
+            urlsToComments.add(firstPage);
+        }
+
+        return urlsToComments;
     }
 
     public Map<String, Long> extractTopHashTags(List<String> messages, int tagsNum) {

@@ -5,7 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import result.CommentDataResult;
+import result.VideoDataResult;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -54,7 +61,6 @@ public class Collector {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
         log.info("video texts: " + messages.size() + " objects");
-        log.info("unique details: " + new HashSet <>(videoDetails).size());
 
         Map<String, String> posts = new HashMap <>();
         for (int i = 0; i < (videoDetails.size()); i++) {
@@ -64,5 +70,22 @@ public class Collector {
         chromeDriver.quit();
 
         return new VideoDataResult(videoDetails, messages, posts);
+    }
+
+    public List<String> collectCommentData(List<String> urls) throws IOException {
+        List<String> comments = new ArrayList <>();
+        String collectedText;
+        for(String url : urls) {
+            URL link = new URL(url);
+            URLConnection connection = link.openConnection();
+            connection.setRequestProperty("accept", "application/json, text/plain, */*");
+            connection.setRequestProperty("referer", "www.tiktok.com");
+            connection.setRequestProperty("user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36");
+            InputStream inputStream = connection.getInputStream();
+            Scanner scanner = new Scanner(inputStream);
+            collectedText = scanner.nextLine();
+            comments.add(collectedText);
+        }
+        return comments;
     }
 }

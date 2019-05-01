@@ -3,6 +3,7 @@ package tiktok;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import result.VideoDataResult;
 
 public class CollectorTest {
     static Collector collector = new Collector();
@@ -11,7 +12,7 @@ public class CollectorTest {
     @BeforeClass
     public static void setup() {
         try {
-            collectedData = collector.collectVideoData("tea");
+            collectedData = collector.collectVideoData("avengers");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
