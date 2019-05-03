@@ -1,10 +1,15 @@
 package tiktok;
 
+import com.google.gson.Gson;
+import json.CommentBody;
+import json.CommentForm;
+import json.CommentListData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import result.Comment;
 import result.CommentDataResult;
 import result.VideoDataResult;
 
@@ -72,8 +77,8 @@ public class Collector {
         return new VideoDataResult(videoDetails, messages, posts);
     }
 
-    public List<String> collectCommentData(List<String> urls) throws IOException {
-        List<String> comments = new ArrayList <>();
+    public List<String> collectUrlResponses(List<String> urls) throws IOException {
+        List<String> urlResponses = new ArrayList <>();
         String collectedText;
         for(String url : urls) {
             URL link = new URL(url);
@@ -84,8 +89,42 @@ public class Collector {
             InputStream inputStream = connection.getInputStream();
             Scanner scanner = new Scanner(inputStream);
             collectedText = scanner.nextLine();
-            comments.add(collectedText);
+            urlResponses.add(collectedText);
         }
-        return comments;
+        return urlResponses;
+    }
+
+    public CommentDataResult groupCommentDataResults(List<String> urlResponses) {
+        Gson gson = new Gson();
+        List<String> textMessages = new ArrayList <>();
+        List<String> authors = new ArrayList <>();
+        List<String> dates = new ArrayList <>();
+        Map<String, Comment> comments = new HashMap <>();
+
+        for (String response : urlResponses) {
+            CommentForm commentForm = gson.fromJson(response, CommentForm.class);
+            if (commentForm.statusCode==0) {
+
+                for (CommentListData commentListData: commentForm.body.commentListData) {
+
+                    String textMessage = commentListData.text;
+                    textMessages.add(textMessage);
+
+                    String author = commentListData.nickname;
+                    authors.add(author);
+
+                    String date = commentListData.createTimestamp;
+                    dates.add(date);
+
+                    String messageId = commentListData.id;
+
+                    Comment comment = new Comment(textMessage, author, date);
+                    comments.put(messageId, comment);
+                }
+            }
+
+        }
+
+        return new CommentDataResult(textMessages, authors, dates, comments);
     }
 }

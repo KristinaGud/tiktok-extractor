@@ -1,5 +1,6 @@
 package tiktok;
 
+import result.CommentDataResult;
 import result.VideoDataResult;
 
 import java.io.IOException;
@@ -11,11 +12,22 @@ public class App {
         Collector collector = new Collector();
         Extractor extractor = new Extractor();
 
-        VideoDataResult ladygaga = collector.collectVideoData("ladygaga");
-        Set <String> extractIds = extractor.extractIds(ladygaga.getVideoData());
+        VideoDataResult ladyGagaVideos = collector.collectVideoData("ladygaga");
+        Set <String> extractIds = extractor.extractIds(ladyGagaVideos.getVideoData());
         List <String> urlsToFirstPageComments = extractor.generateUrlsToFirstCommentsPage(extractIds);
 
-        System.out.println("Top 10 hashtags in video description: " + extractor.extractTopHashTags(ladygaga.getMessages(), 10));
-        collector.collectCommentData(urlsToFirstPageComments).forEach(System.out::println);
+        System.out.println("Top 10 tags in videos descriptions: " + extractor.extractTopHashTags(ladyGagaVideos.getMessages(), 10));
+
+        List <String> urlResponses = collector.collectUrlResponses(urlsToFirstPageComments);
+
+        CommentDataResult commentDataResult = collector.groupCommentDataResults(urlResponses);
+        List <String> commentsTextMessages = commentDataResult.getTextMessages();
+        List<String> dates = commentDataResult.getDates();
+
+        System.out.println("List of internet users comments related to analyzed videos: " + commentsTextMessages);
+        System.out.printf("All comments were posted from %s till %s", extractor.getStartDate(dates), extractor.getEndDate(dates));
+
+
+
     }
 }

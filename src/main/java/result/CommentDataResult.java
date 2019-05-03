@@ -7,9 +7,9 @@ public class CommentDataResult {
     private List<String> textMessages;
     private List<String> authors;
     private List<String> dates;
-    private Map<String, List<String>> comments;
+    private Map<String, Comment> comments;
 
-    public CommentDataResult(List <String> textMessages, List <String> authors, List <String> dates, Map <String, List <String>> comments) {
+    public CommentDataResult(List <String> textMessages, List <String> authors, List <String> dates, Map <String, Comment> comments) {
         this.textMessages = textMessages;
         this.authors = authors;
         this.dates = dates;
@@ -40,11 +40,11 @@ public class CommentDataResult {
         this.dates = dates;
     }
 
-    public Map <String, List <String>> getComments() {
+    public Map <String, Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Map <String, List <String>> comments) {
+    public void setComments(Map <String, Comment> comments) {
         this.comments = comments;
     }
 }
