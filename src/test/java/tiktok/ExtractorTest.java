@@ -3,10 +3,7 @@ package tiktok;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ExtractorTest {
     Extractor extractor = new Extractor();
@@ -92,5 +89,40 @@ public class ExtractorTest {
         Assert.assertTrue(extractor.generateUrlsToFirstCommentsPage(ids).contains(urls.iterator().next()));
     }
 
+    @Test
+    public void dateFormatConverted() {
+        List<String> unixTime = new ArrayList <>();
+        unixTime.add("1533633600");
+        unixTime.add("1553897340");
+        unixTime.add("1556907526");
 
+        List<String> formatedDate = new ArrayList <>();
+        formatedDate.add("07 Aug 2018 11:20");
+        formatedDate.add("29 Mar 2019 23:09");
+        formatedDate.add("03 May 2019 20:18");
+
+        Assert.assertEquals(formatedDate, extractor.convertDateFormat(unixTime));
+    }
+
+    @Test
+    public void endDateChosen() {
+        List<String> unixTime = new ArrayList <>();
+        unixTime.add("1533633600");
+        unixTime.add("1553897340");
+        unixTime.add("1556907526");
+
+        String endDate = extractor.getEndDate(unixTime);
+        Assert.assertEquals("03 May 2019 20:18", endDate);
+    }
+
+    @Test
+    public void startDateChosen() {
+        List<String> unixTime = new ArrayList <>();
+        unixTime.add("1533633600");
+        unixTime.add("1553897340");
+        unixTime.add("1556907526");
+
+        String startDate = extractor.getStartDate(unixTime);
+        Assert.assertEquals("07 Aug 2018 11:20", startDate);
+    }
 }
