@@ -146,6 +146,5 @@ public class Extractor {
                 .max(Comparator.naturalOrder())
                 .get();
         return convertSingleDate(endDate);
-
     }
 }
