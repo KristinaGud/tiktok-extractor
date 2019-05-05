@@ -3,8 +3,14 @@ package tiktok;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.google.gson.Gson;
+import json.CommentForm;
+import json.CommentListData;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import result.Comment;
+import result.CommentDataResult;
+import result.NextPages;
 
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -15,6 +21,7 @@ import static java.util.stream.Collectors.*;
 
 public class Extractor {
     Logger log = LoggerFactory.getLogger(Extractor.class);
+    Gson gson = new Gson();
 
     public Set<String> extractIds (List<String> videoData) {
         Set<String > ids = new HashSet <>();
@@ -33,16 +40,51 @@ public class Extractor {
         return ids;
     }
 
-    public List<String> generateUrlsToFirstCommentsPage(Set<String> ids) {
+    public NextPages extractNextPagesInfo (String urlResponse) {
+        CommentForm commentForm = gson.fromJson(urlResponse, CommentForm.class);
+        NextPages nextPages = new NextPages();
+            if (commentForm.statusCode==0) {
+                boolean hasMore = commentForm.body.hasMore;
+                nextPages.setStatus(hasMore);
+                if (hasMore) {
+                    nextPages.setTotal(commentForm.body.total);
+                    nextPages.setUrl(commentForm.body.pageState.fullUrl);
+                    nextPages.setNextPageCursor(commentForm.body.cursor);
+                }
+            }
+        return nextPages;
+    }
 
-        List<String> urlsToComments = new ArrayList <>();
-        for (String id: ids) {
-            String firstPage = "https://www.tiktok.com/share/item/comment/list?id=" +
-                    id + "&count=48&cursor=0&_signature=cJfYMBAfLGFyOs.2PI.XMXCX2C";
-            urlsToComments.add(firstPage);
+    public CommentDataResult extractCommentDataResults(List<String> urlResponses) {
+        List<String> textMessages = new ArrayList <>();
+        List<String> authors = new ArrayList <>();
+        List<String> dates = new ArrayList <>();
+        Map<String, Comment> comments = new HashMap <>();
+
+        for (String response : urlResponses) {
+            CommentForm commentForm = gson.fromJson(response, CommentForm.class);
+            if (commentForm.statusCode==0) {
+
+                for (CommentListData commentListData: commentForm.body.commentListData) {
+
+                    String textMessage = commentListData.text;
+                    textMessages.add(textMessage);
+
+                    String author = commentListData.nickname;
+                    authors.add(author);
+
+                    String date = commentListData.createTimestamp;
+                    dates.add(date);
+
+                    String messageId = commentListData.id;
+
+                    Comment comment = new Comment(textMessage, author, date);
+                    comments.put(messageId, comment);
+                }
+            }
         }
 
-        return urlsToComments;
+        return new CommentDataResult(textMessages, authors, dates, comments);
     }
 
     public Map<String, Long> extractTopHashTags(List<String> messages, int tagsNum) {
@@ -75,19 +117,18 @@ public class Extractor {
         return topTags;
     }
 
-    public String formatDate (Long timeStamp) {
+    public String convertSingleDate(Long timeStamp) {
         String pattern = "dd MMM yyyy HH:mm";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(new Date(timeStamp * 1000));
     }
 
-    public List <String> convertDateFormat(List<String> unixTimeStamps) {
+    public List <String> convertListDate(List<String> unixTimeStamps) {
         List<String> dates = new ArrayList <>();
 
         for (String date: unixTimeStamps) {
-            dates.add(formatDate(Long.parseLong(date)));
+            dates.add(convertSingleDate(Long.parseLong(date)));
         }
-
         return dates;
     }
 
@@ -96,7 +137,7 @@ public class Extractor {
                 .map(Long::valueOf)
                 .min(Comparator.naturalOrder())
                 .get();
-        return formatDate(startDate);
+        return convertSingleDate(startDate);
     }
 
     public String getEndDate(List<String> unixTime) {
@@ -104,7 +145,7 @@ public class Extractor {
                 .map(Long::valueOf)
                 .max(Comparator.naturalOrder())
                 .get();
-        return formatDate(endDate);
+        return convertSingleDate(endDate);
 
     }
 }

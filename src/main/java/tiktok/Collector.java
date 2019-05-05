@@ -94,37 +94,4 @@ public class Collector {
         return urlResponses;
     }
 
-    public CommentDataResult groupCommentDataResults(List<String> urlResponses) {
-        Gson gson = new Gson();
-        List<String> textMessages = new ArrayList <>();
-        List<String> authors = new ArrayList <>();
-        List<String> dates = new ArrayList <>();
-        Map<String, Comment> comments = new HashMap <>();
-
-        for (String response : urlResponses) {
-            CommentForm commentForm = gson.fromJson(response, CommentForm.class);
-            if (commentForm.statusCode==0) {
-
-                for (CommentListData commentListData: commentForm.body.commentListData) {
-
-                    String textMessage = commentListData.text;
-                    textMessages.add(textMessage);
-
-                    String author = commentListData.nickname;
-                    authors.add(author);
-
-                    String date = commentListData.createTimestamp;
-                    dates.add(date);
-
-                    String messageId = commentListData.id;
-
-                    Comment comment = new Comment(textMessage, author, date);
-                    comments.put(messageId, comment);
-                }
-            }
-
-        }
-
-        return new CommentDataResult(textMessages, authors, dates, comments);
-    }
 }

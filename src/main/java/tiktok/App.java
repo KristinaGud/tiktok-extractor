@@ -11,23 +11,22 @@ public class App {
     public static void main(String[] args) throws InterruptedException, IOException {
         Collector collector = new Collector();
         Extractor extractor = new Extractor();
+        UrlGenerator urlGenerator = new UrlGenerator();
 
         VideoDataResult ladyGagaVideos = collector.collectVideoData("ladygaga");
         Set <String> extractIds = extractor.extractIds(ladyGagaVideos.getVideoData());
-        List <String> urlsToFirstPageComments = extractor.generateUrlsToFirstCommentsPage(extractIds);
+        List <String> urlsToFirstPageComments = urlGenerator.generateUrlsToFirstCommentsPage(extractIds);
 
         System.out.println("Top 10 tags in videos descriptions: " + extractor.extractTopHashTags(ladyGagaVideos.getMessages(), 10));
 
         List <String> urlResponses = collector.collectUrlResponses(urlsToFirstPageComments);
 
-        CommentDataResult commentDataResult = collector.groupCommentDataResults(urlResponses);
+        CommentDataResult commentDataResult = extractor.extractCommentDataResults(urlResponses);
         List <String> commentsTextMessages = commentDataResult.getTextMessages();
         List<String> dates = commentDataResult.getDates();
 
         System.out.println("List of internet users comments related to analyzed videos: " + commentsTextMessages);
         System.out.printf("All comments were posted from %s till %s", extractor.getStartDate(dates), extractor.getEndDate(dates));
-
-
 
     }
 }
