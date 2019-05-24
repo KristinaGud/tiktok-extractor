@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import java.util.Date;
 
 import static java.util.stream.Collectors.*;
+import static tiktok.DateFormatter.convertSingleDate;
 
 public class Extractor {
     Logger log = LoggerFactory.getLogger(Extractor.class);
@@ -115,21 +116,6 @@ public class Extractor {
         log.info(topTags.entrySet().toString());
 
         return topTags;
-    }
-
-    public String convertSingleDate(Long timeStamp) {
-        String pattern = "dd MMM yyyy HH:mm";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        return simpleDateFormat.format(new Date(timeStamp * 1000));
-    }
-
-    public List <String> convertListDate(List<String> unixTimeStamps) {
-        List<String> dates = new ArrayList <>();
-
-        for (String date: unixTimeStamps) {
-            dates.add(convertSingleDate(Long.parseLong(date)));
-        }
-        return dates;
     }
 
     public String getStartDate(List<String> unixTime) {
