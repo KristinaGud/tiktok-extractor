@@ -1,21 +1,14 @@
-package tiktok;
+package tiktok.service;
 
-import com.google.gson.Gson;
-import json.CommentBody;
-import json.CommentForm;
-import json.CommentListData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import result.Comment;
-import result.CommentDataResult;
-import result.VideoDataResult;
+import tiktok.result.VideoDataResult;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
@@ -83,7 +76,7 @@ public class Collector {
         for(String url : urls) {
             URL link = new URL(url);
             URLConnection connection = link.openConnection();
-            connection.setRequestProperty("accept", "application/json, text/plain, */*");
+            connection.setRequestProperty("accept", "application/tiktok.json, text/plain, */*");
             connection.setRequestProperty("referer", "www.tiktok.com");
             connection.setRequestProperty("user-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36");
             InputStream inputStream = connection.getInputStream();

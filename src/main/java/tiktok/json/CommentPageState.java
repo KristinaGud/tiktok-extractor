@@ -1,4 +1,4 @@
-package json;
+package tiktok.json;
 
 public class CommentPageState {
     public int regionAppId;

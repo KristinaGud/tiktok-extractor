@@ -1,6 +1,6 @@
-package tiktok;
+package tiktok.service;
 
-import result.NextPages;
+import tiktok.result.NextPages;
 
 import java.util.ArrayList;
 import java.util.List;

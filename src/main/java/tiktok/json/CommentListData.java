@@ -1,4 +1,4 @@
-package json;
+package tiktok.json;
 
 public class CommentListData {
     public String userId;

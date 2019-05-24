@@ -1,10 +1,10 @@
-package result;
+package tiktok.result;
 
 public class NextPages {
-    String url;
-    boolean status;
-    int total;
-    int NextPageCursor;
+    private String url;
+    private boolean status;
+    private int total;
+    private int nextPageCursor;
 
     public String getUrl() {
         return url;
@@ -31,11 +31,11 @@ public class NextPages {
     }
 
     public int getNextPageCursor() {
-        return NextPageCursor;
+        return nextPageCursor;
     }
 
     public void setNextPageCursor(int nextPageCursor) {
-        this.NextPageCursor = nextPageCursor;
+        this.nextPageCursor = nextPageCursor;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class NextPages {
 
         if (status != nextPages.status) return false;
         if (total != nextPages.total) return false;
-        if (NextPageCursor != nextPages.NextPageCursor) return false;
+        if (nextPageCursor != nextPages.nextPageCursor) return false;
         return url != null ? url.equals(nextPages.url) : nextPages.url == null;
     }
 
@@ -56,7 +56,7 @@ public class NextPages {
         int result = url != null ? url.hashCode() : 0;
         result = 31 * result + (status ? 1 : 0);
         result = 31 * result + total;
-        result = 31 * result + NextPageCursor;
+        result = 31 * result + nextPageCursor;
         return result;
     }
 
@@ -66,7 +66,7 @@ public class NextPages {
                 "url='" + url + '\'' +
                 ", status=" + status +
                 ", total=" + total +
-                ", NextPageCursor=" + NextPageCursor +
+                ", nextPageCursor=" + nextPageCursor +
                 '}';
     }
 }

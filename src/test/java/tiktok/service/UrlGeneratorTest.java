@@ -1,8 +1,9 @@
-package tiktok;
+package tiktok.service;
 
 import org.junit.Assert;
 import org.junit.Test;
-import result.NextPages;
+import tiktok.result.NextPages;
+import tiktok.service.UrlGenerator;
 
 import java.util.ArrayList;
 import java.util.HashSet;

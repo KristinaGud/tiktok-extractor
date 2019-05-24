@@ -1,4 +1,4 @@
-package json;
+package tiktok.json;
 
 public class CommentForm {
     public int statusCode;

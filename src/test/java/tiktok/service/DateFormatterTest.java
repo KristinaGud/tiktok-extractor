@@ -1,4 +1,4 @@
-package tiktok;
+package tiktok.service;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static tiktok.DateFormatter.convertListDate;
+import static tiktok.service.DateFormatter.convertListDate;
 
 public class DateFormatterTest {
 

@@ -1,14 +1,15 @@
-package tiktok;
+package tiktok.service;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
-import result.NextPages;
+import tiktok.result.NextPages;
+import tiktok.service.Extractor;
 
 import java.util.*;
 
 public class ExtractorTest {
-    Extractor extractor = new Extractor();
+    Extractor extractor = new Extractor(new Gson());
 
     @Test
     public void matchedStringIsIdTest() {

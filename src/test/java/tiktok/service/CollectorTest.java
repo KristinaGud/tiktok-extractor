@@ -1,9 +1,10 @@
-package tiktok;
+package tiktok.service;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import result.VideoDataResult;
+import tiktok.result.VideoDataResult;
+import tiktok.service.Collector;
 
 public class CollectorTest {
     static Collector collector = new Collector();

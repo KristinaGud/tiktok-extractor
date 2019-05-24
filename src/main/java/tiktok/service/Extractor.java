@@ -1,28 +1,31 @@
-package tiktok;
+package tiktok.service;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.google.gson.Gson;
-import json.CommentForm;
-import json.CommentListData;
+import tiktok.json.CommentForm;
+import tiktok.json.CommentListData;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import result.Comment;
-import result.CommentDataResult;
-import result.NextPages;
+import tiktok.result.Comment;
+import tiktok.result.CommentDataResult;
+import tiktok.result.NextPages;
 
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Date;
 
 import static java.util.stream.Collectors.*;
-import static tiktok.DateFormatter.convertSingleDate;
+import static tiktok.service.DateFormatter.convertSingleDate;
 
 public class Extractor {
-    Logger log = LoggerFactory.getLogger(Extractor.class);
-    Gson gson = new Gson();
+    private final Logger LOGGER = LoggerFactory.getLogger(Extractor.class);
+
+    private Gson GSON;
+
+    public Extractor(Gson GSON) {
+        this.GSON = GSON;
+    }
 
     public Set<String> extractIds (List<String> videoData) {
         Set<String > ids = new HashSet <>();
@@ -36,13 +39,13 @@ public class Extractor {
             }
         }
 
-        log.info("found unique ids: " + ids.size());
+        LOGGER.info("found unique ids: " + ids.size());
 
         return ids;
     }
 
     public NextPages extractNextPagesInfo (String urlResponse) {
-        CommentForm commentForm = gson.fromJson(urlResponse, CommentForm.class);
+        CommentForm commentForm = GSON.fromJson(urlResponse, CommentForm.class);
         NextPages nextPages = new NextPages();
             if (commentForm.statusCode==0) {
                 boolean hasMore = commentForm.body.hasMore;
@@ -63,7 +66,7 @@ public class Extractor {
         Map<String, Comment> comments = new HashMap <>();
 
         for (String response : urlResponses) {
-            CommentForm commentForm = gson.fromJson(response, CommentForm.class);
+            CommentForm commentForm = GSON.fromJson(response, CommentForm.class);
             if (commentForm.statusCode==0) {
 
                 for (CommentListData commentListData: commentForm.body.commentListData) {

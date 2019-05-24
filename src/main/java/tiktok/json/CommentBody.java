@@ -1,4 +1,4 @@
-package json;
+package tiktok.json;
 
 public class CommentBody {
     public CommentPageState pageState;

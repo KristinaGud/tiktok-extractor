@@ -1,9 +1,13 @@
-package tiktok;
+package tiktok.service;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
-import result.CommentDataResult;
-import result.NextPages;
+import tiktok.result.CommentDataResult;
+import tiktok.result.NextPages;
+import tiktok.service.Collector;
+import tiktok.service.Extractor;
+import tiktok.service.UrlGenerator;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -13,7 +17,7 @@ import java.util.Set;
 public class TikTokIntegrationTest {
     UrlGenerator urlGenerator = new UrlGenerator();
     Collector collector = new Collector();
-    Extractor extractor = new Extractor();
+    Extractor extractor = new Extractor(new Gson());
 
     @Test
     public void extractingCommentsFromNextPages() throws IOException {
