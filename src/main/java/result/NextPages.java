@@ -59,4 +59,14 @@ public class NextPages {
         result = 31 * result + NextPageCursor;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "NextPages{" +
+                "url='" + url + '\'' +
+                ", status=" + status +
+                ", total=" + total +
+                ", NextPageCursor=" + NextPageCursor +
+                '}';
+    }
 }
