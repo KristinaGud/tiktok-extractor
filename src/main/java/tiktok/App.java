@@ -16,8 +16,10 @@ public class App {
         VideoDataResult ladyGagaVideos = collector.collectVideoData("ladygaga");
         Set <String> extractIds = extractor.extractIds(ladyGagaVideos.getVideoData());
         List <String> urlsToFirstPageComments = urlGenerator.generateUrlsToFirstCommentsPage(extractIds);
+        List <String> allLadyGagaTags = extractor.extractHashTags(ladyGagaVideos.getMessages());
 
-        System.out.println("Top 10 tags in videos descriptions: " + extractor.extractTopHashTags(ladyGagaVideos.getMessages(), 10));
+        System.out.println("Num of unique tags used in video descriptions: " + extractor.countUniqueTags(allLadyGagaTags));
+        System.out.println("Top 10 tags in videos descriptions: " + extractor.pickOutTopHashTags(allLadyGagaTags, 10));
 
         List <String> urlResponses = collector.collectUrlResponses(urlsToFirstPageComments);
 

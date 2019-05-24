@@ -87,8 +87,8 @@ public class Extractor {
 
         return new CommentDataResult(textMessages, authors, dates, comments);
     }
-
-    public Map<String, Long> extractTopHashTags(List<String> messages, int tagsNum) {
+    
+    public List <String> extractHashTags(List<String> messages) {
         String [] allText = (Arrays.stream(messages.toString()
                 .split("#"))
                 .skip(1)
@@ -106,6 +106,11 @@ public class Extractor {
             }
         }
 
+        return tags;
+    }
+
+    public Map<String, Long> pickOutTopHashTags(List<String> tags, int tagsNum) {
+
         Map<String, Long> topTags = tags.stream().collect(groupingBy(Function.identity(), counting()))
                 .entrySet()
                 .stream()
@@ -113,9 +118,11 @@ public class Extractor {
                 .limit(tagsNum)
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
 
-        log.info(topTags.entrySet().toString());
-
         return topTags;
+    }
+
+    public long countUniqueTags (List<String> tags) {
+        return tags.stream().distinct().count();
     }
 
     public String getStartDate(List<String> unixTime) {

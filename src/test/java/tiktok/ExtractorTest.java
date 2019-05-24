@@ -35,7 +35,7 @@ public class ExtractorTest {
     }
 
     @Test
-    public void extractedNoNextPages() {
+    public void extractedNoNextPagesTest() {
         String urlResponse = "{\"statusCode\":0,\"body\":{\"pageState\":{\"regionAppId\":1233,\"os\":\"linux\",\"region\":\"PL\",\"baseURL\":\"m.tiktok.com\",\"appType\":\"t\",\"fullUrl\":\"https://www.tiktok.com/share/item/comment/list?id=6684937864062438662&count=48&cursor=0&_signature=Huy4ihAeQiYcQa9MNuoS0x7suJ\"},\"commentListData\":[{\"userId\":\"6609533445809291269\",\"text\":\"Still nooooo\",\"nickname\":\"Moe.sh123\",\"uniqueId\":\"moe.sh123\",\"id\":\"6685035509871525894\",\"diggCount\":112,\"createTimestamp\":\"1556481121\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631455207255045~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631455207255045~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631455207255045~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6574745112492048390\",\"text\":\"you were probably about to get your hair cut so it wouldn’t even matter\",\"nickname\":\"7.1k \uD83E\uDD7A\uD83D\uDC9E\",\"uniqueId\":\"brightlaverne\",\"id\":\"6685085890366849030\",\"diggCount\":1465,\"createTimestamp\":\"1556492855\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632372755568646~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632372755568646~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632372755568646~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6587981156716756998\",\"text\":\"Jezus obciąć włosy dla fejmu...masakra\",\"nickname\":\"\uD83D\uDC51Adrian Król\uD83D\uDC51\",\"uniqueId\":\"akise02\",\"id\":\"6684959482197753862\",\"diggCount\":5674,\"createTimestamp\":\"1556463421\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"308797811951652864\",\"text\":\"Comment is loading ... █████████████]99,9%\",\"nickname\":\"SD Tik\",\"uniqueId\":\"sdtik1\",\"id\":\"6686814961932500998\",\"diggCount\":1,\"createTimestamp\":\"1556895432\",\"coversMedium\":[\"https://mpak-suse1.akamaized.net/res/user_v_icon/837/icon_308797811951652864-n39CvusdHI.jpg\"],\"coversLarger\":[\"https://mpak-suse1.akamaized.net/res/user_v_icon/837/icon_308797811951652864-n39CvusdHI.jpg\"],\"covers\":[\"https://mpak-suse1.akamaized.net/res/user_v_icon/837/icon_308797811951652864-n39CvusdHI.jpg\"],\"replyComment\":{}},{\"userId\":\"6653870062908719110\",\"text\":\"obcięłam dla siebie a skoro obcinalam to stwierdziłam ze nagram to\",\"nickname\":\"\uD83C\uDF3B\",\"uniqueId\":\"paawłowska_\",\"id\":\"6684960807388282886\",\"diggCount\":3465,\"createTimestamp\":\"1556463729\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_100x100.jpeg\"],\"replyComment\":{\"userId\":\"6587981156716756998\",\"text\":\"Jezus obciąć włosy dla fejmu...masakra\",\"nickname\":\"\uD83D\uDC51Adrian Król\uD83D\uDC51\",\"uniqueId\":\"akise02\"," +
                 "\"id\":\"6684959482197753862\",\"diggCount\":5674,\"createTimestamp\":\"1556463421\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_100x100.jpeg\"],\"replyComment\":{}}},{\"userId\":\"147830284976062464\",\"text\":\"To tylko włosy, a ona i tak je chciała obciąć sooo\",\"nickname\":\"Dusia \uD83D\uDC9B\",\"uniqueId\":\"klaudiagrzegorczyk\",\"id\":\"6684979228595142661\",\"diggCount\":1383,\"createTimestamp\":\"1556468018\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625647914627078~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625647914627078~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625647914627078~c5_100x100.jpeg\"],\"replyComment\":{\"userId\":\"6587981156716756998\",\"text\":\"Jezus obciąć włosy dla fejmu...masakra\",\"nickname\":\"\uD83D\uDC51Adrian Król\uD83D\uDC51\",\"uniqueId\":\"akise02\",\"id\":\"6684959482197753862\",\"diggCount\":5674,\"createTimestamp\":\"1556463421\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1629826334361606~c5_100x100.jpeg\"],\"replyComment\":{}}},{\"userId\":\"6678315321374721029\",\"text\":\"Szacun ja bym tak nie mogła\",\"nickname\":\"nana\",\"uniqueId\":\"natusiasalatusia\",\"id\":\"6685018583724097541\",\"diggCount\":195,\"createTimestamp\":\"1556477181\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632077678015494~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632077678015494~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632077678015494~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"124608415108120577\",\"text\":\"nie xD\",\"nickname\":\"suzan\",\"uniqueId\":\"ledzionzuzanna\",\"id\":\"6684960166628114437\",\"diggCount\":2455,\"createTimestamp\":\"1556463580\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1630730443456518~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1630730443456518~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1630730443456518~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"198575944989777920\",\"text\":\"@agata_szperlik never\",\"nickname\":\"aa.maja\",\"uniqueId\":\"mãjka233\",\"id\":\"6687263494268092422\",\"diggCount\":0,\"createTimestamp\":\"1556999865\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625090034194437~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625090034194437~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1625090034194437~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6653870062908719110\",\"text\":\"niestety\",\"nickname\":\"\uD83C\uDF3B\",\"uniqueId\":\"paawłowska_\",\"id\":\"6685064954716438534\",\"diggCount\":54,\"createTimestamp\":\"1556487980\",\"" +
                 "coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_100x100.jpeg\"],\"replyComment\":{\"userId\":\"163512331136724992\",\"text\":\"FEJM WAM BIJE DO GLOWY XD\",\"nickname\":\"Kamil Kudera\",\"uniqueId\":\"needyourblood\",\"id\":\"6685064600993529861\",\"diggCount\":2,\"createTimestamp\":\"1556487896\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631386828306438~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631386828306438~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1631386828306438~c5_100x100.jpeg\"],\"replyComment\":{}}},{\"userId\":\"6559228682773413894\",\"text\":\"Thanksss forr youurr likee ✔️♥️.\",\"nickname\":\".88 \",\"uniqueId\":\"ray..88\",\"id\":\"6687162436036591622\",\"diggCount\":0,\"createTimestamp\":\"1556976336\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632529719399430~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632529719399430~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632529719399430~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6637877867185356805\",\"text\":\"You look like @stien_dd\",\"nickname\":\"Cringe asf but okey\",\"uniqueId\":\"im.not.cringe.okey\",\"id\":\"6686896314875363333\",\"diggCount\":0,\"createTimestamp\":\"1556914375\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1622856058534070~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1622856058534070~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1622856058534070~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6560323909094522885\",\"text\":\"What will your mom say\",\"nickname\":\"Jsakr2091\",\"uniqueId\":\"jsakr2091\",\"id\":\"6686727280959897605\",\"diggCount\":0,\"createTimestamp\":\"1556875020\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632419727035397~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632419727035397~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632419727035397~c5_100x100.jpeg\"],\"replyComment\":{}},{\"userId\":\"6616607841502019590\",\"text\":\"Okay but why did u do it\",\"nickname\":\"Bag_xx_of_xx_bonesxo\",\"uniqueId\":\"xx_cuzzies_borex_xxx\",\"id\":\"6687138525710352389\",\"diggCount\":0,\"createTimestamp\":\"1556970769\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632636844261381~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632636844261381~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632636844261381~c5_100x100.jpeg\"],\"replyComment\":{\"userId\":\"6653870062908719110\",\"text\":\"thats my real hair!\",\"nickname\":\"\uD83C\uDF3B\",\"uniqueId\":\"paawłowska_\",\"id\":\"6686130438417154053\",\"diggCount\":21,\"createTimestamp\":\"1556736055\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1632094623519749~c5_720x720.jpeg\"],\"" +
@@ -58,7 +58,7 @@ public class ExtractorTest {
     }
 
     @Test
-    public void CommentMessageTextIsGrouped() {
+    public void CommentMessageTextIsGroupedTest() {
         List<String> urlResponses = new ArrayList <>();
         urlResponses.add("{\"statusCode\":0,\"body\":{\"pageState\":{\"regionAppId\":1233,\"os\":\"linux\",\"region\":\"PL\",\"baseURL\":\"m.tiktok.com\",\"appType\":\"t\",\"fullUrl\":\"https://www.tiktok.com/share/item/comment/list?id=6686441987769371910&count=48&cursor=0&_signature=cJfYMBAfLGFyOs.2PI.XMXCX2C\"},\"commentListData\":[],\"hasMore\":false,\"cursor\":48,\"total\":0},\"errMsg\":null}\n");
         urlResponses.add("{\"statusCode\":200,\"contentType\":\"text/plain\",\"content\":\"\"}\n");
@@ -80,7 +80,7 @@ public class ExtractorTest {
     }
 
     @Test
-    public void CommentAuthorIsGrouped() {
+    public void CommentAuthorIsGroupedTest() {
         List<String> urlResponses = new ArrayList <>();
         urlResponses.add("{\"statusCode\":200,\"contentType\":\"text/plain\",\"content\":\"\"}");
         urlResponses.add("{\"statusCode\":0,\"body\":{\"pageState\":{\"regionAppId\":1233,\"os\":\"linux\",\"region\":\"PL\",\"baseURL\":\"m.tiktok.com\",\"appType\":\"t\",\"fullUrl\":\"https://www.tiktok.com/share/item/comment/list?id=6685918855652445445&count=48&cursor=0&_signature=cJfYMBAfLGFyOs.2PI.XMXCX2C\"},\"commentListData\":[{\"userId\":\"6660063624449146886\",\"text\":\"Love it x\",\"nickname\":\"Jempower\",\"uniqueId\":\"jempower_92\",\"id\":\"6685951746499788806\",\"diggCount\":1,\"createTimestamp\":\"1556694450\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1626198595280901~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1626198595280901~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1626198595280901~c5_100x100.jpeg\"],\"replyComment\":{}}],\"hasMore\":false,\"cursor\":48,\"total\":1},\"errMsg\":null}\n");
@@ -96,7 +96,7 @@ public class ExtractorTest {
     }
 
     @Test
-    public void CommentDateIsGrouped() {
+    public void CommentDateIsGroupedTest() {
         List<String> urlResponses = new ArrayList <>();
         urlResponses.add("{\"statusCode\":0,\"body\":{\"pageState\":{\"regionAppId\":1233,\"os\":\"linux\",\"region\":\"PL\",\"baseURL\":\"m.tiktok.com\",\"appType\":\"t\",\"fullUrl\":\"https://www.tiktok.com/share/item/comment/list?id=6686257894083529989&count=48&cursor=0&_signature=cJfYMBAfLGFyOs.2PI.XMXCX2C\"},\"commentListData\":[{\"userId\":\"82098281358487552\",\"text\":\"Glee 2da temporada jajaja \uD83D\uDE00\uD83D\uDE05\uD83D\uDE02\uD83D\uDE03\",\"nickname\":\"Jorge Luis Quiliche Tolentino\",\"uniqueId\":\"jquilichet\",\"id\":\"6686615844338106374\",\"diggCount\":0,\"createTimestamp\":\"1556849075\",\"coversMedium\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1628942501948422~c5_720x720.jpeg\"],\"coversLarger\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1628942501948422~c5_1080x1080.jpeg\"],\"covers\":[\"https://p16.muscdn.com/img/musically-maliva-obj/1628942501948422~c5_100x100.jpeg\"],\"replyComment\":{}}],\"hasMore\":false,\"cursor\":48,\"total\":1},\"errMsg\":null}");
 
@@ -104,14 +104,13 @@ public class ExtractorTest {
     }
 
     @Test
-    public void allTagsExtracted() {
+    public void allTagsExtractedTest() {
         List<String> data = new ArrayList <>();
         data.add("Fail\uD83D\uDE02 De azért nem lett olyan rossz#lol#tiktok#i can see you#from#bihend");
         data.add("Guess what brand of phone I use ?? ❤️#slowmotion #transition #l4l.#sg?#me #lol\n" +
                 "\n");
 
-        Assert.assertEquals(10, extractor.extractTopHashTags(data, 10).size());
-
+        Assert.assertEquals(11, extractor.extractHashTags(data).size());
     }
 
     @Test
@@ -123,13 +122,25 @@ public class ExtractorTest {
         data.add("new trend! Sorry for android lag #foryou #fakememe #foryoupage #meme #lol #duet");
         data.add("Who wants to date? You have to be 10-14 \uD83E\uDD2A\uD83D\uDC4B\uD83C\uDFFC\uD83D\uDC95] #foru #yeet #lol #og #oj #omega #lmao #date #singl");
 
-        Assert.assertTrue(extractor.extractTopHashTags(data, 3).containsKey("lol")&&
-                extractor.extractTopHashTags(data, 3).containsKey("foryoupage")&&
-                extractor.extractTopHashTags(data, 3).containsKey("meme"));
+        List <String> tags = extractor.extractHashTags(data);
+        Assert.assertTrue(extractor.pickOutTopHashTags(tags, 3).containsKey("lol")&&
+                extractor.pickOutTopHashTags(tags, 3).containsKey("foryoupage")&&
+                extractor.pickOutTopHashTags(tags, 3).containsKey("meme"));
     }
 
     @Test
-    public void extract5Tags() {
+    public void countUniqueTagsTest() {
+        List<String> messages = new ArrayList <>();
+        messages.add("#huawei #apple #samsung #nokia#myPhone #lol");
+        messages.add("#duett #lol#duett med @reagera_giirl jag tittar inte på dem här sakerna#lol");
+        messages.add("test working#samsung");
+
+        List <String> allTags = extractor.extractHashTags(messages);
+        Assert.assertEquals(7, extractor.countUniqueTags(allTags));
+    }
+
+    @Test
+    public void extract5TagsTest() {
         List<String> data = new ArrayList <>();
         data.add("Kurz und knapp mein #spind. #foryoupage #foryou #fortnite #meme #lol");
         data.add("\uD83E\uDD23#trend #foryoupage #huh #lol I’ll give 10$ to the person that duets and duets and does it right\uD83D\uDE0A");
@@ -141,26 +152,11 @@ public class ExtractorTest {
         data.add("Guess what brand of phone I use ?? ❤️#slowmotion #transition #l4l #sg #me #lol\n" +
                 "\n");
 
-        Assert.assertEquals(5, extractor.extractTopHashTags(data, 5).size());
+        Assert.assertEquals(5, extractor.pickOutTopHashTags(data, 5).size());
     }
 
     @Test
-    public void dateFormatConverted() {
-        List<String> unixTime = new ArrayList <>();
-        unixTime.add("1533633600");
-        unixTime.add("1553897340");
-        unixTime.add("1556907526");
-
-        List<String> formatedDate = new ArrayList <>();
-        formatedDate.add("07 Aug 2018 11:20");
-        formatedDate.add("29 Mar 2019 23:09");
-        formatedDate.add("03 May 2019 20:18");
-
-        Assert.assertEquals(formatedDate, extractor.convertListDate(unixTime));
-    }
-
-    @Test
-    public void endDateChosen() {
+    public void endDateChosenTest() {
         List<String> unixTime = new ArrayList <>();
         unixTime.add("1533633600");
         unixTime.add("1553897340");
@@ -171,7 +167,7 @@ public class ExtractorTest {
     }
 
     @Test
-    public void startDateChosen() {
+    public void startDateChosenTest() {
         List<String> unixTime = new ArrayList <>();
         unixTime.add("1533633600");
         unixTime.add("1553897340");
